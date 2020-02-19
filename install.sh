@@ -3,9 +3,7 @@
 set -e
 
 ROOT_DIR=~/.py-prompts
-if [ -d $ROOT_DIR ]; then
-  rm -rf $ROOT_DIR
-fi
+rm -rf $ROOT_DIR
 
 git clone https://github.com/arpitbbhayani/py-prompts $ROOT_DIR
 
