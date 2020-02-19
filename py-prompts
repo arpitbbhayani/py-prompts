@@ -44,9 +44,9 @@ if [ "$command" = "set" ]; then
       print_list
       exit 1
     fi
-    if [ -f $HOME/.bashrc1 ]; then
+    if [ -f $HOME/.bashrc ]; then
       echo "export PYTHONSTARTUP=$HOME/.py-prompts/themes/$theme_name.py" >> $HOME/.bashrc
-    elif [ -f $HOME/.zshrc1 ]; then
+    elif [ -f $HOME/.zshrc ]; then
       echo "export PYTHONSTARTUP=$HOME/.py-prompts/themes/$theme_name.py" >> $HOME/.zshrc
     else
       echo "\033[0;31mCould not detect your rc file. kindly add the following line in your rc file.\033[0m"
