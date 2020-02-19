@@ -7,7 +7,7 @@ class IPythonPromptPS1(object):
 
   def __str__(self):
     self.line += 1
-    return "\033[92mIn [%d]:\033[0m " % (self.line)
+    return "\n\033[92mIn [%d]:\033[0m " % (self.line)
 
 sys.ps1 = IPythonPromptPS1()
 sys.ps2 = "    \033[91m...\033[0m "
