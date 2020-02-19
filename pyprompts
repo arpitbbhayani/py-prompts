@@ -8,7 +8,7 @@ print_help() {
 }
 
 print_list() {
-  ls $HOME/.py-prompts/themes | rev | cut -d "." -f 2- | rev
+  ls $HOME/.pypropmts/themes | rev | cut -d "." -f 2- | rev
 }
 
 if [ -z $command ]; then
@@ -29,23 +29,25 @@ fi
 if [ "$command" = "set" ]; then
   theme_name=$2
   if [ -z "$theme_name" ]; then
-    echo "usage: py-prompts set <theme_name>"
+    echo "usage: pypropmts set <theme_name>"
     echo "available themes"
     print_list
   else
     echo "setting theme $theme_name"
-    if [ ! -f "$HOME/.py-prompts/themes/$theme_name.py" ]; then
+    if [ ! -f "$HOME/.pypropmts/themes/$theme_name.py" ]; then
       echo "theme $theme_name does not exist. available themes are"
       print_list
       exit 1
     fi
     if [ -f $HOME/.bashrc ]; then
-      echo "export PYTHONSTARTUP=$HOME/.py-prompts/themes/$theme_name.py" >> $HOME/.bashrc
+      echo "export PYTHONSTARTUP=$HOME/.pypropmts/themes/$theme_name.py" >> $HOME/.bashrc
+      source $HOME/.bashrc
     elif [ -f $HOME/.zshrc ]; then
-      echo "export PYTHONSTARTUP=$HOME/.py-prompts/themes/$theme_name.py" >> $HOME/.zshrc
+      echo "export PYTHONSTARTUP=$HOME/.pypropmts/themes/$theme_name.py" >> $HOME/.zshrc
+      source $HOME/.zshrc
     else
       echo "could not detect your rc file. kindly add the following line in your rc file"
-      echo "export PYTHONSTARTUP=$HOME/.py-prompts/themes/$theme_name.py" >> $HOME/.bashrc
+      echo "export PYTHONSTARTUP=$HOME/.pypropmts/themes/$theme_name.py" >> $HOME/.bashrc
     fi
   fi
   exit 0
