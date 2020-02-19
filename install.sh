@@ -9,10 +9,10 @@ git clone https://github.com/arpitbbhayani/py-prompts $ROOT_DIR
 
 if [ -f ~/.bashrc ]; then
   echo "export PATH=$PATH:~/.py-prompts" >> ~/.bashrc
-  source ~/.bashrc
+  echo "py-prompts is now installed on your machine. call command py-prompts to use it."
 elif [ -f ~/.zshrc ]; then
   echo "export PATH=$PATH:~/.py-prompts" >> ~/.zshrc
-  source ~/.zshrc
+  echo "py-prompts is now installed on your machine. call command py-prompts to use it."
 else
   echo "could not detect your rc file. kindly add the following line in your rc file"
   echo "export PATH=$PATH:~/.py-prompts"
