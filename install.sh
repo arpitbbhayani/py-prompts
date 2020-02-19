@@ -3,6 +3,10 @@
 set -e
 
 ROOT_DIR=~/.py-prompts
+if [ -d $ROOT_DIR ]; then
+  rm -rf $ROOT_DIR
+fi
+
 git clone https://github.com/arpitbbhayani/py-prompts $ROOT_DIR
 
 if [ -f ~/.bashrc ]; then
