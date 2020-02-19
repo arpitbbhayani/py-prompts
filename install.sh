@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 ROOT_DIR=$HOME/.pyprompts
 rm -rf $ROOT_DIR
 
