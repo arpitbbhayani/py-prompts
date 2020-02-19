@@ -3,7 +3,7 @@
 ROOT_DIR=$HOME/.pyprompts
 rm -rf $ROOT_DIR
 
-git clone https://github.com/arpitbbhayani/pyprompts $ROOT_DIR
+git clone https://github.com/arpitbbhayani/py-prompts $ROOT_DIR
 
 if [ -f $HOME/.bashrc ]; then
   echo ".bashrc detected. updating PATH variable and exporting it through $HOME/.bashrc"
