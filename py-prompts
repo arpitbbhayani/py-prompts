@@ -1,0 +1,55 @@
+#!/bin/sh
+
+set -e
+command=$1
+
+print_help() {
+  echo "available commands: help, ls, set"
+}
+
+print_list() {
+  ls ~/.py-prompts/themes
+}
+
+if [ -z $command ]; then
+  print_help
+  exit 1
+fi
+
+if [ "$command" = "help" ]; then
+  print_help
+  exit 0
+fi
+
+if [ "$command" = "ls" ]; then
+  print_list
+  exit 0
+fi
+
+if [ "$command" = "set" ]; then
+  theme_name=$2
+  if [ -z "$theme_name" ]; then
+    echo "usage: py-prompts set <theme_name>"
+    echo "available themes"
+    print_list
+  else
+    echo "setting theme $theme_name"
+    if [ ! -f ~/.py-prompts/themes/$theme_name ]; then
+      echo "theme $theme_name does not exist. available themes are"
+      print_list
+      exit 1
+    fi
+    if [ -f "~/.bashrc" ]; then
+      echo "export PYTHONSTARTUP=~/.py-prompts/themes/$theme_name" >> ~/.bashrc
+    elif [ -f "~/.zshrc" ]; then
+      echo "export PYTHONSTARTUP=~/.py-prompts/themes/$theme_name" >> ~/.zshrc
+    else
+      echo "could not detect your rc file. kindly add the following line in your RC file"
+      echo "export PYTHONSTARTUP=~/.py-prompts/themes/$theme_name"
+    fi
+  fi
+  exit 0
+fi
+
+print_help
+exit 1
