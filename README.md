@@ -31,3 +31,8 @@ $ py-prompts set <theme_name>
 ```
 
 The changes will take effect from the next terminal session or after sourcing the existing session.
+
+# Adding a new theme
+
+ - Create a python file with your theme and put it in `themes` folder.
+ - Done.
