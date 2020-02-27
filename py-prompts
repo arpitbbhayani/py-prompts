@@ -49,7 +49,7 @@ if [ "$command" = "set" ]; then
     elif [ -f $HOME/.zshrc ]; then
       echo "export PYTHONSTARTUP=$HOME/.py-prompts/themes/$theme_name.py" >> $HOME/.zshrc
     else
-      echo "\033[0;31mCould not detect your rc file. kindly add the following line in your rc file.\033[0m"
+      echo "\033[0;31mCould not detect your rc file. Kindly add the following line in your rc file.\033[0m"
       echo "\033[0;34mexport PYTHONSTARTUP=$HOME/.py-prompts/themes/$theme_name.py\033[0m"
     fi
   fi
